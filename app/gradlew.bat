@@ -13,7 +13,7 @@
 @rem See the License for the specific language governing permissions and
 @rem limitations under the License.
 @rem
-
+set JAVA_HOME="C:\Users\boyko\.jdks\temurin-20.0.2"
 @if "%DEBUG%" == "" @echo off
 @rem ##########################################################################
 @rem
