@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Engine {
     public static String game;
     public static String userName;
+
     public static String greeting() {
         System.out.println("Welcome to the Brain Games!");
         Scanner scanner = new Scanner(System.in);
