@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Calc {
     static int result;
-
     public static void calc() {
         int i = 3;
         System.out.println("What is the result of the expression?");

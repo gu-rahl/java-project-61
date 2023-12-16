@@ -9,11 +9,12 @@ public class Engine {
     public static String greeting() {
         System.out.println("Welcome to the Brain Games!");
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Please enter the game number and press Enter.\n 1 - Greet \n 2 - Even \n 3 - Calc \n 4 - Exit \n");
+        System.out.print("Please enter the game number and press Enter.\n 1 - Greet \n 2 - Even \n 3 - Calc \n 4 - GCD \n 5 - Exit \n");
         String game = scanner.nextLine();
         // scanner.close();
         return Engine.game = game;
     }
+
     public static String enterUserName() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("May I have your name?");
