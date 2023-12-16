@@ -8,15 +8,9 @@ import java.lang.Math;
 import java.util.Scanner;
 
 public class Progression {
-    static int r = 0; // просто проверочный счетчик
+    static int checkResponse = 0; // просто проверочный счетчик
     static int min = 5;
     static int max = 10;
-/*
-    static Random random = new Random();
-    static int step = random.nextInt(10);
-    static int element = random.nextInt(rnd(min, max));
-    static int firstNumber = random.nextInt(100);
-*/
 
     public static int rnd(int min, int max) {
         max -= min;
@@ -47,16 +41,16 @@ public class Progression {
             int answer = scanner.nextInt();
             if (answer == progression[element]) {
                 System.out.println("Correct!");
-                r = 0;
+                checkResponse = 0;
             } else {
                 System.out.println("Your answer: " + answer);
                 System.out.println(answer + " is wrong answer ;(. Correct answer was " + progression[element]);
                 System.out.println("Let's try again, " + Engine.userName);
-                r = 1;
+                checkResponse = 1;
                 break;
             }
         }
-        if (r == 0) {
+        if (checkResponse == 0) {
             System.out.println("Congratulations, " + Engine.userName + "!");
         }
     }

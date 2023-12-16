@@ -11,8 +11,8 @@ public class App {
         } else if (game.equals("2")) {
             Engine.enterUserName();
             ParityCheck.playdTheGame();
-        } else if (game.equals("6")) {
-            System.out.print("Your choice: 5, Good Bye!");
+        } else if (game.equals("7")) {
+            System.out.print("Your choice: 7, Good Bye!");
         } else if (game.equals("4")) {
             Engine.enterUserName();
             GCD.findingGcd();
@@ -22,6 +22,9 @@ public class App {
         } else if (game.equals("5")) {
             Engine.enterUserName();
             Progression.progressionUse();
+        } else if (game.equals("6")) {
+            Engine.enterUserName();
+            Prime.primeMath();
         } else System.out.print("BAD choice!, Good Bye!");
     }
 }
