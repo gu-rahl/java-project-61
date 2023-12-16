@@ -1,7 +1,4 @@
 package hexlet.code;
-
-import java.io.IOException;
-
 public class App {
     public static void main(String[] args) {
         Engine.greeting();
