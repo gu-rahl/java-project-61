@@ -36,9 +36,7 @@ public class ParityCheck {
                 System.out.println("Congratulations, " + Engine.userName + " !");
                 break;
             }
-
         }
-
     }
 }
 

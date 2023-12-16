@@ -11,7 +11,7 @@ public class App {
         } else if (game.equals("2")) {
             Engine.enterUserName();
             ParityCheck.playdTheGame();
-        } else if (game.equals("5")) {
+        } else if (game.equals("6")) {
             System.out.print("Your choice: 5, Good Bye!");
         } else if (game.equals("4")) {
             Engine.enterUserName();
@@ -19,6 +19,9 @@ public class App {
         } else if (game.equals("3")) {
             Engine.enterUserName();
             Calc.calc();
+        } else if (game.equals("5")) {
+            Engine.enterUserName();
+            Progression.progressionUse();
         } else System.out.print("BAD choice!, Good Bye!");
     }
 }
