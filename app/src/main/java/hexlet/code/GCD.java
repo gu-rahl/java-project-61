@@ -9,8 +9,8 @@ public class GCD {
 
     public static void findingGcd() {
         System.out.println("Find the greatest common divisor of given numbers");
+        Random randomNumbers = new Random();
         for (int i = 0; i < 3; i++) {
-            Random randomNumbers = new Random();
             int numberA = randomNumbers.nextInt(100);
             int numberB = randomNumbers.nextInt(100);
             System.out.println("Question: " + numberA + " " + numberB);
@@ -26,7 +26,6 @@ public class GCD {
             gcd = numberA;
             if (answer == gcd) {
                 System.out.println("Correct!");
-                checkResponse = 0;
             } else {
                 System.out.println("Your answer: " + answer);
                 System.out.println(answer + " is wrong answer ;(. Correct answer was " + gcd);
