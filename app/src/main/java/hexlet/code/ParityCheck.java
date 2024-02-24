@@ -13,7 +13,7 @@ public class ParityCheck {
             System.out.println("Question: " + randomNumber);
             String yesOrNo = scanner.nextLine();
             System.out.println("Your answer: " + yesOrNo);
-            scanner.close();
+            //scanner.close();
             if (!yesOrNo.equals("yes") && !yesOrNo.equals("no")) {
                 System.out.println("that's wrong. Try again.");
                 break;
