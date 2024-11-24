@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.Even;
-
 import java.util.Scanner;
 
 public class App {
