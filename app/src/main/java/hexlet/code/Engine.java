@@ -15,7 +15,8 @@ public class Engine {
 
         System.out.println(gameDescription);
 
-        for (String[] round : roundsData) {
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            String[] round = roundsData[i];
             String question = round[0];
             String correctAnswer = round[1];
 
