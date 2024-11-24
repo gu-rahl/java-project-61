@@ -12,6 +12,7 @@ public class Cli {
 
         System.out.println("Hello, " + name + "!");
     }
+
     public static void greetUser() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
