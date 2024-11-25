@@ -14,7 +14,8 @@ public class App {
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
-        System.out.println("5 - ProgressionGame");
+        System.out.println("5 - Progression Game");
+        System.out.println("6 - Prime Game");
         System.out.println("0 - Exit");
 
         System.out.print("Your choice: ");
@@ -35,6 +36,9 @@ public class App {
                 break;
             case 5:
                 ProgressionGame.startGame();  // Запуск игры "Арифметическая прогрессия"
+                break;
+            case 6:
+                PrimeGame.run();  // Запуск игры "Простое ли число"
                 break;
             case 0:
                 System.out.println("Goodbye!");
