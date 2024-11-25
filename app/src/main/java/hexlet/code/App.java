@@ -14,6 +14,7 @@ public class App {
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
+        System.out.println("5 - ProgressionGame");
         System.out.println("0 - Exit");
 
         System.out.print("Your choice: ");
@@ -21,16 +22,19 @@ public class App {
 
         switch (choice) {
             case 1:
-                Cli.greetUser();
+                Cli.greetUser(); // запуск "приветствия"
                 break;
             case 2:
-                Even.play();
+                Even.play(); // запуск игры "проверка на четность"
                 break;
             case 3:
-                Calc.run();
+                Calc.run(); // запуск игры "калькулятор"
                 break;
             case 4:
                 GCD.runGame(); // запуск игры "НОД"
+                break;
+            case 5:
+                ProgressionGame.startGame();  // Запуск игры "Арифметическая прогрессия"
                 break;
             case 0:
                 System.out.println("Goodbye!");
