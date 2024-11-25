@@ -13,17 +13,31 @@ public class App {
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
         System.out.println("0 - Exit");
 
         System.out.print("Your choice: ");
         int choice = scanner.nextInt();
 
         switch (choice) {
-            case 1 -> Cli.greetUser();
-            case 2 -> Even.play();
-            case 3 -> Calc.run();
-            case 0 -> System.out.println("Goodbye!");
-            default -> System.out.println("Invalid choice.");
+            case 1:
+                Cli.greetUser();
+                break;
+            case 2:
+                Even.play();
+                break;
+            case 3:
+                Calc.run();
+                break;
+            case 4:
+                GCD.runGame(); // запуск игры "НОД"
+                break;
+            case 0:
+                System.out.println("Goodbye!");
+                break;
+            default:
+                System.out.println("Invalid choice.");
+                break;
         }
     }
 }
