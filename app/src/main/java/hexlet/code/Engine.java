@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
 
-    private static final int roundsCount = 3;
+    private static final int ROUNDS_COUNT = 3;
 
     public static void runGame(String[][] roundsData, String gameDescription) {
         Scanner scanner = new Scanner(System.in);
@@ -16,7 +16,7 @@ public class Engine {
 
         System.out.println(gameDescription);
 
-        for (int roundIndex = 0; roundIndex < roundsCount; roundIndex++) {
+        for (int roundIndex = 0; roundIndex < ROUNDS_COUNT; roundIndex++) {
             String[] round = roundsData[roundIndex];
             String question = round[0];
             String correctAnswer = round[1];
