@@ -6,18 +6,18 @@ import java.util.Random;
 
 public class Calc {
 
-    private static final int MAX_RANDOM_NUMBER = 100;
-    private static final int NUMBER_OF_ROUNDS = 3;
-    private static final char[] OPERATORS = {'+', '-', '*'};
+    private static final int maxRandomNumber = 100;
+    private static final int numberOfRounds = 3;
+    private static final char[] operators = {'+', '-', '*'};
 
     public static void run() {
-        String[][] roundsData = new String[NUMBER_OF_ROUNDS][2];
+        String[][] roundsData = new String[numberOfRounds][2];
         String gameDescription = "What is the result of the expression?";
         Random random = new Random();
 
         for (int i = 0; i < roundsData.length; i++) {
-            int number1 = random.nextInt(MAX_RANDOM_NUMBER);
-            int number2 = random.nextInt(MAX_RANDOM_NUMBER);
+            int number1 = random.nextInt(maxRandomNumber);
+            int number2 = random.nextInt(maxRandomNumber);
             char operator = getRandomOperator();
 
             String question = number1 + " " + operator + " " + number2;
@@ -32,7 +32,7 @@ public class Calc {
 
     private static char getRandomOperator() {
         Random random = new Random();
-        return OPERATORS[random.nextInt(OPERATORS.length)];
+        return operators[random.nextInt(operators.length)];
     }
 
     private static int calculate(int num1, int num2, char operator) {

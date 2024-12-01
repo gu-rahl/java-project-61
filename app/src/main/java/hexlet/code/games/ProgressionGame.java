@@ -6,22 +6,22 @@ import java.util.Random;
 
 public class ProgressionGame {
 
-    private static final int MIN_PROGRESSION_LENGTH = 5;
-    private static final int MAX_PROGRESSION_LENGTH = 10;
-    private static final int MIN_STEP = 1;
-    private static final int MAX_STEP = 10;
-    private static final int ROUNDS_COUNT = 3;
-    private static final int MAX_START_VALUE = 10;
-    private static final int HIDDEN_ELEMENT_PLACEHOLDER = -1;
+    private static final int minProgressionLength = 5;
+    private static final int maxProgressionLength = 10;
+    private static final int minStep = 1;
+    private static final int maxStep = 10;
+    private static final int roundsCount = 3;
+    private static final int maxStartValue = 10;
+    private static final int hiddenElementPlaceholder = -1;
 
     public static String[][] generateRoundsData() {
         Random random = new Random();
-        String[][] roundsData = new String[ROUNDS_COUNT][2];  // Массив для хранения вопросов и правильных ответов
+        String[][] roundsData = new String[roundsCount][2];  // Массив для хранения вопросов и правильных ответов
 
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
-            int progressionLength = random.nextInt(MAX_PROGRESSION_LENGTH - MIN_PROGRESSION_LENGTH + 1) + MIN_PROGRESSION_LENGTH;
-            int step = random.nextInt(MAX_STEP - MIN_STEP + 1) + MIN_STEP;
-            int start = random.nextInt(MAX_START_VALUE);
+        for (int i = 0; i < roundsCount; i++) {
+            int progressionLength = random.nextInt(maxProgressionLength - minProgressionLength + 1) + minProgressionLength;
+            int step = random.nextInt(maxStep - minStep + 1) + minStep;
+            int start = random.nextInt(maxStartValue);
 
             // Генерируем прогрессию
             int[] progression = new int[progressionLength];
@@ -32,12 +32,12 @@ public class ProgressionGame {
             // Скрываем случайный элемент
             int hiddenIndex = random.nextInt(progressionLength);
             int hiddenValue = progression[hiddenIndex];
-            progression[hiddenIndex] = HIDDEN_ELEMENT_PLACEHOLDER; // Скрытый элемент помечаем как -1
+            progression[hiddenIndex] = hiddenElementPlaceholder; // Скрытый элемент помечаем как -1
 
             // Формируем строку для вывода
             StringBuilder question = new StringBuilder();
             for (int j = 0; j < progressionLength; j++) {
-                if (progression[j] == HIDDEN_ELEMENT_PLACEHOLDER) {
+                if (progression[j] == hiddenElementPlaceholder) {
                     question.append(".. ");
                 } else {
                     question.append(progression[j]).append(" ");

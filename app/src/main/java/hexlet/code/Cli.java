@@ -4,19 +4,19 @@ import java.util.Scanner;
 
 public class Cli {
 
-    private static final String GREETING_MESSAGE = "Welcome to the Brain Games!";
-    private static final String NAME_PROMPT = "May I have your name? ";
-    private static final String HELLO_MESSAGE = "Hello, ";
+    private static final String greetingMessage = "Welcome to the Brain Games!";
+    private static final String namePrompt = "May I have your name? ";
+    private static final String helloMessage = "Hello, ";
 
     public static void greetUser() {
         String name = getName();
-        System.out.println(GREETING_MESSAGE);
-        System.out.println(HELLO_MESSAGE + name + "!");
+        System.out.println(greetingMessage);
+        System.out.println(helloMessage + name + "!");
     }
 
     private static String getName() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print(NAME_PROMPT);
+        System.out.print(namePrompt);
         return scanner.nextLine();
     }
 }
