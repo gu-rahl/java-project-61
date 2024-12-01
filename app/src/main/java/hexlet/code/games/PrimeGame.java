@@ -1,16 +1,19 @@
-package hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.Engine;
 
 import java.util.Random;
 
 public class PrimeGame {
-    private static final int MAX_NUMBER = 100;
+
+    private static final int MAX_RANDOM_NUMBER = 100;
+    private static final int ROUNDS_COUNT = 3;
 
     public static void run() {
         final String gameDescription = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        final int roundsCount = 3;
-        String[][] roundsData = new String[roundsCount][2];
+        String[][] roundsData = new String[ROUNDS_COUNT][2];
 
-        for (int i = 0; i < roundsCount; i++) {
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
             int number = generateRandomNumber();
             String question = String.valueOf(number);
             String correctAnswer = isPrime(number) ? "yes" : "no";
@@ -24,7 +27,7 @@ public class PrimeGame {
 
     private static int generateRandomNumber() {
         Random random = new Random();
-        return random.nextInt(MAX_NUMBER) + 1;
+        return random.nextInt(MAX_RANDOM_NUMBER) + 1;
     }
 
     private static boolean isPrime(int number) {

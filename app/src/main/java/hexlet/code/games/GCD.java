@@ -1,11 +1,15 @@
-package hexlet.code;
+package hexlet.code.games;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class GCD {
 
-    public static int findGCD(int a, int b) {
+    private static final int roundsCount = 3;
+    private static final int maxRandomValue = 100;
+    private static final int minRandomValue = 1;
+
+    public static int findGcd(int a, int b) {
         // Алгоритм Евклида для нахождения НОД
         while (b != 0) {
             int temp = b;
@@ -18,7 +22,6 @@ public class GCD {
     public static void runGame() {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        int roundsCount = 3;
 
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
@@ -29,8 +32,8 @@ public class GCD {
 
         for (int round = 0; round < roundsCount; round++) {
             // Генерация двух случайных чисел
-            int num1 = random.nextInt(100) + 1;
-            int num2 = random.nextInt(100) + 1;
+            int num1 = random.nextInt(maxRandomValue) + minRandomValue;
+            int num2 = random.nextInt(maxRandomValue) + minRandomValue;
 
             System.out.println("Question: " + num1 + " " + num2);
             System.out.print("Your answer: ");
@@ -38,7 +41,7 @@ public class GCD {
 
             // Проверка ответа
             try {
-                int correctAnswer = findGCD(num1, num2);
+                int correctAnswer = findGcd(num1, num2);
                 if (Integer.parseInt(userAnswer) == correctAnswer) {
                     System.out.println("Correct!");
                 } else {
