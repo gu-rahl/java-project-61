@@ -1,5 +1,4 @@
 plugins {
-    id("java")
     id("application") // Исправлено: здесь "application" должен быть отдельным идентификатором
     id("checkstyle") // подключение
 }
