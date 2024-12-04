@@ -25,20 +25,22 @@ public class Even {
             System.out.print("Your answer: ");
             String userAnswer = scanner.nextLine();
 
-            boolean isEven = number % 2 == 0;
-            String correctAnswer = isEven ? YES : NO;
+            String correctAnswer = isEven(number) ? YES : NO;
 
             if (userAnswer.equals(correctAnswer)) {
                 System.out.println("Correct!");
                 correctAnswers++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(");
-                System.out.println("Correct answer was '" + correctAnswer + "'.");
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + playerName + "!");
                 return;
             }
         }
 
         System.out.println("Congratulations, " + playerName + "!");
+    }
+
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }
