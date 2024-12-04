@@ -18,7 +18,10 @@ public class ProgressionGame {
         String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
 
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            int progressionLength = random.nextInt(MAX_PROGRESSION_LENGTH - MIN_PROGRESSION_LENGTH + 1) + MIN_PROGRESSION_LENGTH;
+            int progressionLength = random.nextInt(
+                    MAX_PROGRESSION_LENGTH - MIN_PROGRESSION_LENGTH + 1
+            ) + MIN_PROGRESSION_LENGTH;
+
             int step = random.nextInt(MAX_STEP - MIN_STEP + 1) + MIN_STEP;
             int start = random.nextInt(MAX_START_VALUE);
 
