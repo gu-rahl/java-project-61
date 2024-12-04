@@ -1,11 +1,12 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class GCD {
 
-    private static final int ROUNDS_COUNT = 3;
     private static final int MAX_RANDOM_VALUE = 100;
     private static final int MIN_RANDOM_VALUE = 1;
 
@@ -30,7 +31,7 @@ public class GCD {
 
         System.out.println("Find the greatest common divisor of given numbers.");
 
-        for (int round = 0; round < ROUNDS_COUNT; round++) {
+        for (int round = 0; round < Engine.ROUNDS_COUNT; round++) {
             // Генерация двух случайных чисел
             int num1 = random.nextInt(MAX_RANDOM_VALUE) + MIN_RANDOM_VALUE;
             int num2 = random.nextInt(MAX_RANDOM_VALUE) + MIN_RANDOM_VALUE;

@@ -1,10 +1,11 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Scanner;
 
 public class Even {
 
-    private static final int ROUNDS_COUNT = 3;
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final String YES = "yes";
     private static final String NO = "no";
@@ -19,7 +20,7 @@ public class Even {
 
         int correctAnswers = 0;
 
-        while (correctAnswers < ROUNDS_COUNT) {
+        while (correctAnswers < Engine.ROUNDS_COUNT) {
             int number = (int) (Math.random() * MAX_RANDOM_NUMBER) + 1;
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");

@@ -7,11 +7,10 @@ import java.util.Random;
 public class Calc {
 
     private static final int MAX_RANDOM_NUMBER = 100;
-    private static final int NUMBER_OF_ROUNDS = 3;
     private static final char[] OPERATORS = {'+', '-', '*'};
 
     public static void run() {
-        String[][] roundsData = new String[NUMBER_OF_ROUNDS][2];
+        String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
         String gameDescription = "What is the result of the expression?";
         Random random = new Random();
 

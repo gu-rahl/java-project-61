@@ -7,13 +7,12 @@ import java.util.Random;
 public class PrimeGame {
 
     private static final int MAX_RANDOM_NUMBER = 100;
-    private static final int ROUNDS_COUNT = 3;
 
     public static void run() {
         final String gameDescription = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[][] roundsData = new String[ROUNDS_COUNT][2];
+        String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
 
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             int number = generateRandomNumber();
             String question = String.valueOf(number);
             String correctAnswer = isPrime(number) ? "yes" : "no";

@@ -10,15 +10,14 @@ public class ProgressionGame {
     private static final int MAX_PROGRESSION_LENGTH = 10;
     private static final int MIN_STEP = 1;
     private static final int MAX_STEP = 10;
-    private static final int ROUNDS_COUNT = 3;
     private static final int MAX_START_VALUE = 10;
     private static final int HIDDEN_ELEMENT_PLACEHOLDER = -1;
 
     public static String[][] generateRoundsData() {
         Random random = new Random();
-        String[][] roundsData = new String[ROUNDS_COUNT][2];  // Массив для хранения вопросов и правильных ответов
+        String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];  // Массив для хранения вопросов и правильных ответов
 
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             int progressionLength = random.nextInt(
                     MAX_PROGRESSION_LENGTH - MIN_PROGRESSION_LENGTH + 1
             ) + MIN_PROGRESSION_LENGTH;
