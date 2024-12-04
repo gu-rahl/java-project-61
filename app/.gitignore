@@ -51,4 +51,5 @@ bin/
 
 # Игнорируем системные файлы
 .DS_Store
-Thumbs.db
+Thumbs.db.idea/
+.idea/
