@@ -3,59 +3,42 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class GCD {
 
     private static final int MAX_RANDOM_VALUE = 100;
     private static final int MIN_RANDOM_VALUE = 1;
+    private static final String GAME_DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
-    public static int findGcd(int a, int b) {
-        // Алгоритм Евклида для нахождения НОД
+    public static void runGCD() {
+        String[][] roundsData = generateRoundsData();
+        Engine.runGame(roundsData, GAME_DESCRIPTION);
+    }
+
+    private static String[][] generateRoundsData() {
+        String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
+        Random random = new Random();
+
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            int num1 = random.nextInt(MAX_RANDOM_VALUE - MIN_RANDOM_VALUE + 1) + MIN_RANDOM_VALUE;
+            int num2 = random.nextInt(MAX_RANDOM_VALUE - MIN_RANDOM_VALUE + 1) + MIN_RANDOM_VALUE;
+
+            String question = num1 + " " + num2;
+            String correctAnswer = String.valueOf(findGcd(num1, num2));
+
+            roundsData[i][0] = question;
+            roundsData[i][1] = correctAnswer;
+        }
+
+        return roundsData;
+    }
+
+    private static int findGcd(int a, int b) {
         while (b != 0) {
             int temp = b;
             b = a % b;
             a = temp;
         }
         return a;
-    }
-
-    public static void runGame() {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String playerName = scanner.nextLine();
-        System.out.println("Hello, " + playerName + "!");
-
-        System.out.println("Find the greatest common divisor of given numbers.");
-
-        for (int round = 0; round < Engine.ROUNDS_COUNT; round++) {
-            // Генерация двух случайных чисел
-            int num1 = random.nextInt(MAX_RANDOM_VALUE) + MIN_RANDOM_VALUE;
-            int num2 = random.nextInt(MAX_RANDOM_VALUE) + MIN_RANDOM_VALUE;
-
-            System.out.println("Question: " + num1 + " " + num2);
-            System.out.print("Your answer: ");
-            String userAnswer = scanner.nextLine();
-
-            // Проверка ответа
-            try {
-                int correctAnswer = findGcd(num1, num2);
-                if (Integer.parseInt(userAnswer) == correctAnswer) {
-                    System.out.println("Correct!");
-                } else {
-                    System.out.printf("'%s' is wrong answer ;(. Correct answer was '%d'.\n", userAnswer, correctAnswer);
-                    System.out.println("Let's try again, " + playerName + "!");
-                    return;
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a number.");
-                return;
-            }
-        }
-
-        System.out.println("Congratulations, " + playerName + "!");
     }
 }

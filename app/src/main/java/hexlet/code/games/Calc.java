@@ -10,11 +10,16 @@ public class Calc {
     private static final char[] OPERATORS = {'+', '-', '*'};
 
     public static void run() {
-        String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
         String gameDescription = "What is the result of the expression?";
+        String[][] roundsData = generateRoundsData();
+        Engine.runGame(roundsData, gameDescription);
+    }
+
+    private static String[][] generateRoundsData() {
+        String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
         Random random = new Random();
 
-        for (int i = 0; i < roundsData.length; i++) {
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             int number1 = random.nextInt(MAX_RANDOM_NUMBER);
             int number2 = random.nextInt(MAX_RANDOM_NUMBER);
             char operator = getRandomOperator();
@@ -26,7 +31,7 @@ public class Calc {
             roundsData[i][1] = correctAnswer;
         }
 
-        Engine.runGame(roundsData, gameDescription);
+        return roundsData;
     }
 
     private static char getRandomOperator() {

@@ -3,7 +3,6 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-
     public static final int ROUNDS_COUNT = 3;
 
     public static void runGame(String[][] roundsData, String gameDescription) {
@@ -13,13 +12,11 @@ public class Engine {
         System.out.print("May I have your name? ");
         String playerName = scanner.nextLine();
         System.out.println("Hello, " + playerName + "!");
-
         System.out.println(gameDescription);
 
         for (int roundIndex = 0; roundIndex < ROUNDS_COUNT; roundIndex++) {
-            String[] round = roundsData[roundIndex];
-            String question = round[0];
-            String correctAnswer = round[1];
+            String question = roundsData[roundIndex][0];
+            String correctAnswer = roundsData[roundIndex][1];
 
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");

@@ -9,7 +9,7 @@ public class PrimeGame {
     private static final int MAX_RANDOM_NUMBER = 100;
 
     public static void run() {
-        final String gameDescription = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String gameDescription = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
 
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {

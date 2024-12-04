@@ -2,46 +2,27 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Scanner;
+import java.util.Random;
 
 public class Even {
-
     private static final int MAX_RANDOM_NUMBER = 100;
-    private static final String YES = "yes";
-    private static final String NO = "no";
 
     public static void play() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String playerName = scanner.nextLine();
-        System.out.println("Hello, " + playerName + "!");
-        System.out.println("Answer '" + YES + "' if the number is even, otherwise answer '" + NO + "'.");
-
-        int correctAnswers = 0;
-
-        while (correctAnswers < Engine.ROUNDS_COUNT) {
-            int number = (int) (Math.random() * MAX_RANDOM_NUMBER) + 1;
-            System.out.println("Question: " + number);
-            System.out.print("Your answer: ");
-            String userAnswer = scanner.nextLine();
-
-            String correctAnswer = isEven(number) ? YES : NO;
-
-            if (userAnswer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-                correctAnswers++;
-            } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + playerName + "!");
-                return;
-            }
-        }
-
-        System.out.println("Congratulations, " + playerName + "!");
+        String gameDescription = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        String[][] roundsData = generateRoundsData();
+        Engine.runGame(roundsData, gameDescription);
     }
 
-    private static boolean isEven(int number) {
-        return number % 2 == 0;
+    private static String[][] generateRoundsData() {
+        String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
+        Random random = new Random();
+
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            int number = random.nextInt(MAX_RANDOM_NUMBER) + 1;
+            roundsData[i][0] = String.valueOf(number);
+            roundsData[i][1] = (number % 2 == 0) ? "yes" : "no";
+        }
+
+        return roundsData;
     }
 }

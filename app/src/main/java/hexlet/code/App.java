@@ -43,7 +43,7 @@ public class App {
                 Calc.run(); // запуск игры "калькулятор"
                 break;
             case GCD_GAME:
-                GCD.runGame(); // запуск игры "НОД"
+                GCD.runGCD(); // запуск игры "НОД"
                 break;
             case PROGRESSION_GAME:
                 ProgressionGame.startGame();  // Запуск игры "Арифметическая прогрессия"
