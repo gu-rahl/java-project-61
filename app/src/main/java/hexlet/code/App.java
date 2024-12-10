@@ -37,7 +37,7 @@ public class App {
                 Cli.greetUser(); // запуск "приветствия"
                 break;
             case EVEN_GAME:
-                Even.play(); // запуск игры "проверка на четность"
+                Even.startGame(); // запуск игры "проверка на четность"
                 break;
             case CALC_GAME:
                 Calc.run(); // запуск игры "калькулятор"
