@@ -11,44 +11,57 @@ public class ProgressionGame {
     private static final int MIN_STEP = 1;
     private static final int MAX_STEP = 10;
     private static final int MAX_START_VALUE = 10;
-    private static final int HIDDEN_ELEMENT_PLACEHOLDER = -1;
+    private static final String HIDDEN_ELEMENT_PLACEHOLDER = "..";
+
+    private static final Random RANDOM = new Random();
 
     public static String[][] generateRoundsData() {
-        Random random = new Random();
         String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
 
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            int progressionLength = random.nextInt(
-                    MAX_PROGRESSION_LENGTH - MIN_PROGRESSION_LENGTH + 1
-            ) + MIN_PROGRESSION_LENGTH;
+            // Генерируем параметры прогрессии
+            int progressionLength = getRandomInt(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+            int step = getRandomInt(MIN_STEP, MAX_STEP);
+            int start = getRandomInt(0, MAX_START_VALUE);
 
-            int step = random.nextInt(MAX_STEP - MIN_STEP + 1) + MIN_STEP;
-            int start = random.nextInt(MAX_START_VALUE);
+            // Генерируем прогрессию
+            int[] progression = generateProgression(progressionLength, start, step);
 
-            int[] progression = new int[progressionLength];
-            for (int j = 0; j < progressionLength; j++) {
-                progression[j] = start + j * step;
-            }
-
-            int hiddenIndex = random.nextInt(progressionLength);
+            // Скрываем случайный элемент
+            int hiddenIndex = getRandomInt(0, progressionLength - 1);
             int hiddenValue = progression[hiddenIndex];
-            progression[hiddenIndex] = HIDDEN_ELEMENT_PLACEHOLDER;
+            progression[hiddenIndex] = -1;
 
+            // Формируем вопрос
             StringBuilder question = new StringBuilder();
-            for (int j = 0; j < progressionLength; j++) {
-                if (progression[j] == HIDDEN_ELEMENT_PLACEHOLDER) {
-                    question.append(".. ");
+            for (int value : progression) {
+                if (value == -1) {
+                    question.append(HIDDEN_ELEMENT_PLACEHOLDER).append(" ");
                 } else {
-                    question.append(progression[j]).append(" ");
+                    question.append(value).append(" ");
                 }
             }
 
-            String correctAnswer = String.valueOf(hiddenValue);
+            // Сохраняем данные для раунда
             roundsData[i][0] = question.toString().trim();
-            roundsData[i][1] = correctAnswer;
+            roundsData[i][1] = String.valueOf(hiddenValue);
         }
 
         return roundsData;
+    }
+
+    // Универсальный метод для генерации прогрессии
+    private static int[] generateProgression(int length, int start, int step) {
+        int[] progression = new int[length];
+        for (int i = 0; i < length; i++) {
+            progression[i] = start + i * step;
+        }
+        return progression;
+    }
+
+    // Метод для генерации случайного числа в заданном диапазоне
+    private static int getRandomInt(int min, int max) {
+        return RANDOM.nextInt(max - min + 1) + min;
     }
 
     public static void startGame() {
