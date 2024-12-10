@@ -1,8 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.utils.Utils;
 
 public class ProgressionGame {
 
@@ -13,22 +12,20 @@ public class ProgressionGame {
     private static final int MAX_START_VALUE = 10;
     private static final String HIDDEN_ELEMENT_PLACEHOLDER = "..";
 
-    private static final Random RANDOM = new Random();
-
     public static String[][] generateRoundsData() {
         String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
 
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            // Генерируем параметры прогрессии
-            int progressionLength = getRandomInt(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
-            int step = getRandomInt(MIN_STEP, MAX_STEP);
-            int start = getRandomInt(0, MAX_START_VALUE);
+            // Генерируем параметры для прогрессии
+            int progressionLength = Utils.getRandomInt(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+            int step = Utils.getRandomInt(MIN_STEP, MAX_STEP);
+            int start = Utils.getRandomInt(0, MAX_START_VALUE);
 
             // Генерируем прогрессию
             int[] progression = generateProgression(progressionLength, start, step);
 
             // Скрываем случайный элемент
-            int hiddenIndex = getRandomInt(0, progressionLength - 1);
+            int hiddenIndex = Utils.getRandomInt(0, progressionLength - 1);
             int hiddenValue = progression[hiddenIndex];
             progression[hiddenIndex] = -1;
 
@@ -57,11 +54,6 @@ public class ProgressionGame {
             progression[i] = start + i * step;
         }
         return progression;
-    }
-
-    // Метод для генерации случайного числа в заданном диапазоне
-    private static int getRandomInt(int min, int max) {
-        return RANDOM.nextInt(max - min + 1) + min;
     }
 
     public static void startGame() {
